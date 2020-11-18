@@ -29,9 +29,16 @@ export default {
     BNavItemDropdown,
     BDropdownItem
   },
+  computed:{
+    isUserLoggedIn(){
+      var userData = localStorage.getItem('userData');
+      return !(userData == null || userData == "");
+    }
+  },
   methods: {
     logOut(){
       localStorage.removeItem('userData');
+      this.$forceUpdate();
     }
   },
 }
